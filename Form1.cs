@@ -44,6 +44,13 @@ namespace PRG272Group5PM
                 bool hasWR = Text.Contains("WR-");
                 int islength = animalID.Length;
 
+                if (RS > 100 || RS < 0)
+                {
+                    MessageBox.Show("Recovery status out of bounts.");
+                    txtRecovery.Focus();
+                    return;
+                }
+
                 if (hasWR == true && islength == 7)
                 {
                     string letters = animalID.Substring(0, 2);
@@ -61,7 +68,11 @@ namespace PRG272Group5PM
                 {
                     MessageBox.Show("Incorrect ID syntax. ID must contain WR- followed by 4 numbers");
                     txtAnimalID.Clear();
+                    txtAnimalID.Focus();
                 }
+
+                
+
             }
             catch(Exception ex)
             {
