@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using PRG272Group5PM.BuildLayer;
 using PRG272Group5PM.DataLayer;
 
 
 namespace PRG272Group5PM
 {
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -22,19 +23,67 @@ namespace PRG272Group5PM
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string animalID = txtAnimalID.Text.Trim;
-            string name = txtName.Text.Trim;
-            string species = txtSpecies.Text.Trim;
-            string age = txtAge.Text.Trim;
-            int RS = Convert.ToInt32(txtRecovery.Text.Trim);
+            
 
-            DataHandler handler = new DataHandler();
+            if (string.IsNullOrWhiteSpace(txtAnimalID.Text) || string.IsNullOrWhiteSpace(txtName.Text) || string.IsNullOrWhiteSpace(txtSpecies.Text) ||
+                    string.IsNullOrWhiteSpace(txtAge.Text) || string.IsNullOrWhiteSpace(txtRecovery.Text))
+            {
+                MessageBox.Show("Please enter all details");
+                return;
+            }
+            try
+            {
+                string animalID = txtAnimalID.Text.Trim();
+                string name = txtName.Text.Trim();
+                string species = txtSpecies.Text.Trim();
+                string age = txtAge.Text.Trim();
+                int RS = Convert.ToInt32(txtRecovery.Text.Trim());
+                string status;
+                string housing;
 
-            string status = handler.CalculatorStatus(RS);
-            string housing = handler.CalculateHousing(status);
+                bool hasWR = Text.Contains("WR-");
+                int islength = animalID.Length;
 
-            handler.AddAnimal(animalID, name, species, age, status,RS, housing);
+                if (RS > 100 || RS < 0)
+                {
+                    MessageBox.Show("Recovery status out of bounts.");
+                    txtRecovery.Focus();
+                    return;
+                }
 
+                if (hasWR == true && islength == 7)
+                {
+                    string letters = animalID.Substring(0, 2);
+
+                    letters.ToUpper();
+                    string realAID = letters + animalID.Substring(animalID.IndexOf('-'));
+                    DataHandler handler = new DataHandler();
+                    Calculations calculat = new Calculations();
+
+                    status = calculat.CalculatorStatus(RS);
+                    housing = calculat.CalculateHousing(status);
+                   
+                    handler.AddAnimal(animalID, name, species, age, status, RS, housing);
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect ID syntax. ID must contain WR- followed by 4 numbers");
+                    txtAnimalID.Clear();
+                    txtAnimalID.Focus();
+                }
+
+                
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            DataHandler.ViewAnimal();
         }
     }
 }
