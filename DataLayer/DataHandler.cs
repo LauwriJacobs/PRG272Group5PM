@@ -71,7 +71,7 @@ namespace PRG272Group5PM.DataLayer
 
      public string path = @"animal.txt";
 
-        public void AddAnimal(string animalid, string name, string species, string age,int recovscore, string status, string HU)
+        public void AddAnimal(string animalid, string name, string species, string age, string status, int recovscore, string HU)
         {
 
             FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
