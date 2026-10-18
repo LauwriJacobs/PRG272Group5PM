@@ -13,28 +13,18 @@ namespace PRG272Group5PM.DataLayer
     {
      public string path = @"animal.txt";
 
-        public void AddAnimal(string animalid, string name, string species, string age, string status, int recovscore, string HU)
+        public void AddAnimal(string animalid, string name, string species, string age, int recovscore, string status, string HU)
         {
 
-            FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
-            using (StreamWriter sw = new StreamWriter(fs))
+            // Append the new record to the file
+            using (StreamWriter sw = new StreamWriter(path, append: true))
             {
-                string text;
-
-                text = $"{animalid}|{name}|{species}|{age}|{recovscore}|{status}|{HU}";
-
+                string text = $"{animalid}|{name}|{species}|{age}|{recovscore}|{status}|{HU}";
                 sw.WriteLine(text);
             }
 
-            fs.Close();
             MessageBox.Show("Data has been saved");
         }
 
-        public void ViewAnimal()
-        {
-            List<Animals> animal = new List<Animal>
-
-            dgvAnimals.DataSource = animal;
-        }
     }
 }

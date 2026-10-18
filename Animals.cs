@@ -8,36 +8,28 @@ namespace PRG272Group5PM
 {
     internal class Animals
     {
-        private string animalid;
-        private string name;
-        private string species;
-        private string age;
-        private int recoverystat;
-        private string status;
-        private string housing;
-
         public Animals(string animalid, string name, string species, string age, int recoverystat, string status, string housing)
         {
-            this.animalid = animalid;
-            this.name = name;
-            this.species = species;
-            this.age = age;
-            this.recoverystat = recoverystat;
-            this.status = status;
-            this.housing = housing;
+            AnimalID = animalid;
+            Name = name;
+            Species = species;
+            Age = age;
+            Recoverystat = recoverystat;
+            Status = status;
+            Housing = housing;
         }
 
         public override string ToString()
         {
-            return $"{animalid}|{name}|{species}|{age}|{recovscore}|{status}|{HU}";
+            return $"{AnimalID}|{Name}|{Species}|{Age}|{Recoverystat}|{Status}|{Housing}";
         }
 
-        public string AnimalID { get => animalid; set => animalid = value }
-        public string Name { get => name; set => name = value }
-        public string Species { get => species; set => species = value }
-        public string Age { get => age; set => age = value }
-        public string Recoverystat { get => recoverystat; set => recoverystat = value }
-        public string Status { get => status; set => status = value }
-        public string Housing { get => housing; set => housing = value }
+        public string AnimalID { get; set; }
+        public string Name { get; set; }
+        public string Species { get; set; }
+        public string Age { get; set; }
+        public int Recoverystat { get; set; }
+        public string Status { get; set; }
+        public string Housing { get; set; }
     }
 }

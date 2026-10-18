@@ -180,36 +180,43 @@
             // CAnimalID
             // 
             this.CAnimalID.HeaderText = "AnimalID";
+            this.CAnimalID.DataPropertyName = "AnimalID";
             this.CAnimalID.Name = "CAnimalID";
             // 
             // CName
             // 
             this.CName.HeaderText = "Name";
+            this.CName.DataPropertyName = "Name";
             this.CName.Name = "CName";
             // 
             // CSpecies
             // 
             this.CSpecies.HeaderText = "Species";
+            this.CSpecies.DataPropertyName = "Species";
             this.CSpecies.Name = "CSpecies";
             // 
             // CAge
             // 
             this.CAge.HeaderText = "Age";
+            this.CAge.DataPropertyName = "Age";
             this.CAge.Name = "CAge";
             // 
             // CRecovery
             // 
             this.CRecovery.HeaderText = "Recovery Score";
+            this.CRecovery.DataPropertyName = "Recoverystat";
             this.CRecovery.Name = "CRecovery";
             // 
             // CStatus
             // 
             this.CStatus.HeaderText = "Status";
+            this.CStatus.DataPropertyName = "Status";
             this.CStatus.Name = "CStatus";
             // 
             // CHousing
             // 
             this.CHousing.HeaderText = "Housing Unit";
+            this.CHousing.DataPropertyName = "Housing";
             this.CHousing.Name = "CHousing";
             // 
             // Form1
