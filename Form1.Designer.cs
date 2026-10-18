@@ -29,22 +29,25 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblAnimalID = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblSpecies = new System.Windows.Forms.Label();
-            this.lblAge = new System.Windows.Forms.Label();
-            this.txtAnimalID = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
             this.txtSpecies = new System.Windows.Forms.TextBox();
-            this.nudAge = new System.Windows.Forms.NumericUpDown();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtAnimalID = new System.Windows.Forms.TextBox();
+            this.lblAge = new System.Windows.Forms.Label();
+            this.lblSpecies = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblAnimalID = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.txtAge = new System.Windows.Forms.TextBox();
+            this.txtRecovery = new System.Windows.Forms.TextBox();
+            this.lblRecoveryscore = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAge)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.nudAge);
+            this.groupBox1.Controls.Add(this.lblRecoveryscore);
+            this.groupBox1.Controls.Add(this.txtRecovery);
+            this.groupBox1.Controls.Add(this.txtAge);
             this.groupBox1.Controls.Add(this.txtSpecies);
             this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.txtAnimalID);
@@ -59,32 +62,26 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add Animal";
             // 
-            // lblAnimalID
+            // txtSpecies
             // 
-            this.lblAnimalID.AutoSize = true;
-            this.lblAnimalID.Location = new System.Drawing.Point(21, 35);
-            this.lblAnimalID.Name = "lblAnimalID";
-            this.lblAnimalID.Size = new System.Drawing.Size(55, 13);
-            this.lblAnimalID.TabIndex = 0;
-            this.lblAnimalID.Text = "Animal ID:";
+            this.txtSpecies.Location = new System.Drawing.Point(94, 101);
+            this.txtSpecies.Name = "txtSpecies";
+            this.txtSpecies.Size = new System.Drawing.Size(100, 20);
+            this.txtSpecies.TabIndex = 6;
             // 
-            // lblName
+            // txtName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(21, 67);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(38, 13);
-            this.lblName.TabIndex = 1;
-            this.lblName.Text = "Name:";
+            this.txtName.Location = new System.Drawing.Point(94, 64);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.TabIndex = 5;
             // 
-            // lblSpecies
+            // txtAnimalID
             // 
-            this.lblSpecies.AutoSize = true;
-            this.lblSpecies.Location = new System.Drawing.Point(21, 101);
-            this.lblSpecies.Name = "lblSpecies";
-            this.lblSpecies.Size = new System.Drawing.Size(48, 13);
-            this.lblSpecies.TabIndex = 2;
-            this.lblSpecies.Text = "Species:";
+            this.txtAnimalID.Location = new System.Drawing.Point(94, 35);
+            this.txtAnimalID.Name = "txtAnimalID";
+            this.txtAnimalID.Size = new System.Drawing.Size(100, 20);
+            this.txtAnimalID.TabIndex = 4;
             // 
             // lblAge
             // 
@@ -95,33 +92,32 @@
             this.lblAge.TabIndex = 3;
             this.lblAge.Text = "Age:";
             // 
-            // txtAnimalID
+            // lblSpecies
             // 
-            this.txtAnimalID.Location = new System.Drawing.Point(94, 35);
-            this.txtAnimalID.Name = "txtAnimalID";
-            this.txtAnimalID.Size = new System.Drawing.Size(100, 20);
-            this.txtAnimalID.TabIndex = 4;
+            this.lblSpecies.AutoSize = true;
+            this.lblSpecies.Location = new System.Drawing.Point(21, 101);
+            this.lblSpecies.Name = "lblSpecies";
+            this.lblSpecies.Size = new System.Drawing.Size(48, 13);
+            this.lblSpecies.TabIndex = 2;
+            this.lblSpecies.Text = "Species:";
             // 
-            // txtName
+            // lblName
             // 
-            this.txtName.Location = new System.Drawing.Point(94, 64);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 20);
-            this.txtName.TabIndex = 5;
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(21, 67);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(38, 13);
+            this.lblName.TabIndex = 1;
+            this.lblName.Text = "Name:";
             // 
-            // txtSpecies
+            // lblAnimalID
             // 
-            this.txtSpecies.Location = new System.Drawing.Point(94, 101);
-            this.txtSpecies.Name = "txtSpecies";
-            this.txtSpecies.Size = new System.Drawing.Size(100, 20);
-            this.txtSpecies.TabIndex = 6;
-            // 
-            // nudAge
-            // 
-            this.nudAge.Location = new System.Drawing.Point(94, 134);
-            this.nudAge.Name = "nudAge";
-            this.nudAge.Size = new System.Drawing.Size(100, 20);
-            this.nudAge.TabIndex = 7;
+            this.lblAnimalID.AutoSize = true;
+            this.lblAnimalID.Location = new System.Drawing.Point(21, 35);
+            this.lblAnimalID.Name = "lblAnimalID";
+            this.lblAnimalID.Size = new System.Drawing.Size(55, 13);
+            this.lblAnimalID.TabIndex = 0;
+            this.lblAnimalID.Text = "Animal ID:";
             // 
             // btnAdd
             // 
@@ -131,6 +127,30 @@
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // txtAge
+            // 
+            this.txtAge.Location = new System.Drawing.Point(94, 133);
+            this.txtAge.Name = "txtAge";
+            this.txtAge.Size = new System.Drawing.Size(100, 20);
+            this.txtAge.TabIndex = 7;
+            // 
+            // txtRecovery
+            // 
+            this.txtRecovery.Location = new System.Drawing.Point(94, 171);
+            this.txtRecovery.Name = "txtRecovery";
+            this.txtRecovery.Size = new System.Drawing.Size(100, 20);
+            this.txtRecovery.TabIndex = 8;
+            // 
+            // lblRecoveryscore
+            // 
+            this.lblRecoveryscore.AutoSize = true;
+            this.lblRecoveryscore.Location = new System.Drawing.Point(1, 174);
+            this.lblRecoveryscore.Name = "lblRecoveryscore";
+            this.lblRecoveryscore.Size = new System.Drawing.Size(87, 13);
+            this.lblRecoveryscore.TabIndex = 9;
+            this.lblRecoveryscore.Text = "Recovery Score:";
             // 
             // Form1
             // 
@@ -143,7 +163,6 @@
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAge)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -151,7 +170,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.NumericUpDown nudAge;
         private System.Windows.Forms.TextBox txtSpecies;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtAnimalID;
@@ -160,6 +178,9 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblAnimalID;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox txtAge;
+        private System.Windows.Forms.Label lblRecoveryscore;
+        private System.Windows.Forms.TextBox txtRecovery;
     }
 }
 
