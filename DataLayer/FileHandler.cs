@@ -14,17 +14,34 @@ namespace PRG272Group5PM.DataLayer
         public List<Animals> readAnimals()
         {
             List<Animals> animal = new List<Animals>();
-            FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
-            StreamReader sr = new StreamReader(fs);
-            string text
-            while ((text = sr.ReadLine()) != null)
+
+            if (!File.Exists(path)) return animal;
+
+            using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+            using (StreamReader sr = new StreamReader(fs))
             {
-                string[] strings = text.Split('|');
-                Animals newAnimal = new Animals(int.Parse(string[0], string[1], string[2], string[3], string[4], string[5], string[6], string[7]);
-                animal.Add(newAnimal);
+                string text;
+                while ((text = sr.ReadLine()) != null)
+                {
+                    if (string.IsNullOrWhiteSpace(text)) continue;
+
+                    string[] parts = text.Split('|');
+                    if (parts.Length < 7) continue; // expect 7 fields
+
+                    string animalid = parts[0];
+                    string name = parts[1];
+                    string species = parts[2];
+                    string age = parts[3];
+
+                    if (!int.TryParse(parts[4], out int recoverystat)) continue;
+
+                    string status = parts[5];
+                    string housing = parts[6];
+
+                    Animals newAnimal = new Animals(animalid, name, species, age, recoverystat, status, housing);
+                    animal.Add(newAnimal);
+                }
             }
-            fs.Close();
-            sr.Close();
 
             return animal;
         }

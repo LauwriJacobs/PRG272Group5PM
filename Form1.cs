@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PRG272Group5PM.BuildLayer;
 using PRG272Group5PM.DataLayer;
+using System.Text.RegularExpressions;
 
 
 namespace PRG272Group5PM
@@ -41,7 +42,7 @@ namespace PRG272Group5PM
                 string status;
                 string housing;
 
-                bool hasWR = Text.Contains("WR-");
+                bool hasWR = animalID.Contains("WR-");
                 int islength = animalID.Length;
 
                 if (RS > 100 || RS < 0)
@@ -53,7 +54,7 @@ namespace PRG272Group5PM
 
                 if (hasWR == true && islength == 7)
                 {
-                    string letters = animalID.Substring(0, 2);
+                    string letters = animalID.Substring(0, 3);
 
                     letters.ToUpper();
                     string realAID = letters + animalID.Substring(animalID.IndexOf('-'));
@@ -63,7 +64,20 @@ namespace PRG272Group5PM
                     status = calculat.CalculatorStatus(RS);
                     housing = calculat.CalculateHousing(status);
                    
-                    handler.AddAnimal(animalID, name, species, age, status, RS, housing);
+                    handler.AddAnimal(animalID, name, species, age, RS, status, housing);
+                    txtAnimalID.Clear();
+                    txtName.Clear();
+                    txtSpecies.Clear();
+                    txtAge.Clear();
+                    txtRecovery.Clear();
+                    txtAge.Clear();
+
+                    FileHandler fh = new FileHandler();
+                    List<Animals> animal = fh.readAnimals();
+
+                    // Ensure designer columns map to properties
+                    dgvAnimals.AutoGenerateColumns = false;
+                    dgvAnimals.DataSource = animal;
                 }
                 else
                 {
@@ -83,7 +97,12 @@ namespace PRG272Group5PM
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            DataHandler.ViewAnimal();
+            FileHandler fh = new FileHandler();
+            List<Animals> animal = fh.readAnimals();
+
+            // Ensure designer columns map to properties
+            dgvAnimals.AutoGenerateColumns = false;
+            dgvAnimals.DataSource = animal;
         }
     }
 }
