@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using PRG272Group5PM.BuildLayer;
 using PRG272Group5PM.DataLayer;
 
 
@@ -58,9 +58,10 @@ namespace PRG272Group5PM
                     letters.ToUpper();
                     string realAID = letters + animalID.Substring(animalID.IndexOf('-'));
                     DataHandler handler = new DataHandler();
+                    Calculations calculat = new Calculations();
 
-                    status = handler.CalculatorStatus(RS);
-                    housing = handler.CalculateHousing(status);
+                    status = calculat.CalculatorStatus(RS);
+                    housing = calculat.CalculateHousing(status);
                    
                     handler.AddAnimal(animalID, name, species, age, status, RS, housing);
                 }
@@ -78,14 +79,11 @@ namespace PRG272Group5PM
             {
                 MessageBox.Show(ex.Message);
             }
+        }
 
-            
-
-
-            
-
-            
-
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            DataHandler.ViewAnimal();
         }
     }
 }
