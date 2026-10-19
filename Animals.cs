@@ -23,7 +23,7 @@ namespace PRG272Group5PM
         {
             return $"{AnimalID}|{Name}|{Species}|{Age}|{Recoverystat}|{Status}|{Housing}";
         }
-
+        //I added a comment to test the commit functionality of GitHub
         public string AnimalID { get; set; }
         public string Name { get; set; }
         public string Species { get; set; }
